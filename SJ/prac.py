@@ -1,11 +1,19 @@
-d = [0] * 1001
+import sys
+sys.stdin = open('input.txt')
+input = sys.stdin.readline
 
-d[1] = 1
-d[2] = 1
-n = 1000
-
-for i in range(3, n + 1):
-    d[i] = d[i - 1] + d[i - 2]
-    print(d[i], i)
+t = int(input())
+for _ in range(t):
+    n = int(input())
+    coins = list(map(int, input().split()))
+    m = int(input())
     
-print(d[n])
+    dp = [0] * (m + 1)
+    dp[0] = 1
+    
+    for coin in coins:
+        for i in range(1, m + 1):
+            if i >= coin:
+                dp[i] += dp[i - coin]
+                
+    print(dp)
