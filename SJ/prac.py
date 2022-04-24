@@ -1,19 +1,15 @@
-import sys
-sys.stdin = open('input.txt')
-input = sys.stdin.readline
+# isalnum을 처음 알게 됨.
+# isalnum : 문자열이 영문자 혹은 숫자인지 True or False로 판별해줌.
 
-t = int(input())
-for _ in range(t):
-    n = int(input())
-    coins = list(map(int, input().split()))
-    m = int(input())
-    
-    dp = [0] * (m + 1)
-    dp[0] = 1
-    
-    for coin in coins:
-        for i in range(1, m + 1):
-            if i >= coin:
-                dp[i] += dp[i - coin]
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        data = list()
+        
+        for i in s:
+            if i.isalnum():
+                data.append(i.lower())
                 
-    print(dp)
+        if data == data[::-1]:
+            return True
+        
+        return False
