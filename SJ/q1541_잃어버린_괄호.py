@@ -21,3 +21,25 @@ for i in arr[1:]:
         res -= int(j)
         
 print(res)
+
+
+
+# <몇 일 후, 나의 풀이>
+# import sys
+# sys.stdin = open('input.txt')
+# input = sys.stdin.readline
+
+# datum = input().split('-')
+# res = 0
+
+# for j in datum[0].split('+'):
+#     res += int(j)
+
+# for i in range(1, len(datum)):
+#     tmps = datum[i].split('+')
+    
+#     for tmp in tmps:
+#         res -= int(tmp)    
+        
+# print(res)
+    

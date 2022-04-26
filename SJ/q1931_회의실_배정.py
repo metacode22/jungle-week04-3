@@ -66,3 +66,23 @@ print(len(res))
 #         cnt += 1
         
 # print(cnt)
+
+
+
+# <몇 일 후 나의 풀이>
+# import sys
+# sys.stdin = open('input.txt')
+# input = sys.stdin.readline
+
+# n = int(input())
+# meeting = [list(map(int, input().split())) for _ in range(n)]
+# meeting.sort(key = lambda x: (x[1], x[0]))
+# cnt = 1
+# end = meeting[0][1]
+
+# for s, e in meeting[1:]:
+#     if s >= end:
+#         end = e
+#         cnt += 1
+        
+# print(cnt)
