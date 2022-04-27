@@ -45,31 +45,30 @@ orders = list(map(int, input().split()))
 multitab = [0] * n
 cnt = 0
 idx = 0
-max_idx = 0
-tmp = 0
 
 for order in orders:
     if order in multitab:
-        idx += 1
-        continue
+        pass
     
     elif 0 in multitab:
         multitab[multitab.index(0)] = order
         
     else:
-        for x in multitab:
-            if x not in orders[idx:]:
-                tmp = x
+        max_idx = 0
+        tmp = 0
+        for tab in multitab:
+            if tab not in orders[idx:]:
+                tmp = tab
                 break
             
-            elif orders[idx:].index(x) > max_idx:
-                tmp = x
-                max_idx = orders[idx:].index(x)
-                
-        multitab[multitab.index(tmp)] = order
+            else:
+                if orders[idx:].index(tab) > max_idx:
+                    max_idx = orders[idx:].index(tab)
+                    tmp = tab
+            
+        multitab[multitab.index(tmp)] = order        
         cnt += 1
-        tmp = 0
-        max_idx = 0
+        
     idx += 1
     
 print(cnt)
